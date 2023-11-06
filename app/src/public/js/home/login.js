@@ -18,9 +18,7 @@ const login = () => {
         },
         body: JSON.stringify(req),
     }).then((res) => res.json()).then((res) => {
-        console.log(res)
         if(res.success){
-            console.log('successful!')
             location.href = "/";
         } else {
             alert(res.msg);
