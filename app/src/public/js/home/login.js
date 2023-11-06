@@ -17,7 +17,17 @@ const login = () => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(req),
-    }).then((res) => res.json()).then((res) => console.log(res));
+    }).then((res) => res.json()).then((res) => {
+        console.log(res)
+        if(res.success){
+            console.log('successful!')
+            location.href = "/";
+        } else {
+            alert(res.msg);
+        }
+    }).catch((err)=>{
+        console.error(new Error("Error on login"));
+    });
 }
 
 loginBtn.addEventListener('click', login);
