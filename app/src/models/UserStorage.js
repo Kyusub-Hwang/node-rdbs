@@ -31,6 +31,15 @@ class UserStorage {
         return userInfo;
     }
 
+    static save = (newClient) => {
+        const users = this.#users;
+        const userKeys = Object.keys(users);
+        const newUsers = userKeys.reduce((acc, info) => {
+            users[info].push(newClient[info])
+        },null);
+        return {success:true}
+    }
+
 }
 
 module.exports = UserStorage;

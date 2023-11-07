@@ -7,14 +7,17 @@ const id = document.querySelector('#id'),
     registerBtn = document.querySelector('#registerBtn')
 
 
+
 const register = () => {
     const req = {
         id: id.value, 
         pw: pw.value, 
-        pwConfirm: pwConfirm.value,
         name: name.value
     }
-    console.log(req);
+
+    if(!id.value) alert("Please register your ID");
+    if(!pw.value) alert("Please make password");
+    if(pw.value !== pwConfirm.value) alert("Please check your password");
     
     fetch("/register", {
         method: "POST",
