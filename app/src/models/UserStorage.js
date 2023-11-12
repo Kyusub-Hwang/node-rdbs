@@ -18,17 +18,17 @@ class UserStorage {
             const query = "SELECT * FROM users WHERE id=? ;"
             db.query(query,[id], (err, data)=>{
                 if (err) reject(`${err}`);
-                resolve(data[0]); 
+                else resolve(data[0]); 
             });
         })
     }
 
     static save = async (newClient) => {
         return new Promise((resolve, reject) => {
-            const query = "INSERT INTO users (id, name, pw) VALUES (?, ?, ?);"
+            const query = "INSERT INTO abc (id, name, pw) VALUES (?, ?, ?);"
             db.query(query,[newClient.id, newClient.name, newClient.pw], (err, data)=>{
                 if (err) reject(`${err}`);
-                resolve({success:true}); 
+                else resolve({success:true}); 
             });
         })
     }

@@ -6,6 +6,9 @@ const id = document.querySelector('#id'),
 
 
 const login = () => {
+    if(!id.value) alert("Please type ID");
+    if(!pw.value) alert("Please type password");
+
     const req = {
         id: id.value, 
         pw: pw.value, 
@@ -21,7 +24,8 @@ const login = () => {
         if(res.success){
             location.href = "/";
         } else {
-            alert(res.msg);
+            if (res.err) return alert(res.err);
+            else alert(res.msg);
         }
     }).catch((err)=>{
         console.error(new Error("Error on login"));

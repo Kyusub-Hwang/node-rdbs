@@ -3,17 +3,13 @@
 //module
 const express = require("express");
 const dotenv = require("dotenv");
+const logger = require("./src/config/logger");
 
 const app = express();
 dotenv.config();
 
-
 //Routing
 const home = require("./src/routes/home");
-
-const logger = require("./src/config/logger");
-logger.log("info", "ACTIVITY LOGGED")
- 
 
 //app setting
 app.set("views", "./src/views");

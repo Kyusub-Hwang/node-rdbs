@@ -9,15 +9,15 @@ const id = document.querySelector('#id'),
 
 
 const register = () => {
+    if(!id.value) alert("Please register your ID");
+    if(!pw.value) alert("Please make password");
+    if(pw.value !== pwConfirm.value) alert("Please check your password");
+
     const req = {
         id: id.value, 
         pw: pw.value, 
         name: name.value
     }
-
-    if(!id.value) alert("Please register your ID");
-    if(!pw.value) alert("Please make password");
-    if(pw.value !== pwConfirm.value) alert("Please check your password");
     
     fetch("/register", {
         method: "POST",
@@ -29,7 +29,8 @@ const register = () => {
         if(res.success){
             location.href = "/login";
         } else {
-            alert(res.msg);
+            if (res.err) return alert(res.err);
+            else alert(res.msg);
         }
     }).catch((err)=>{
         console.error(new Error("Error on register"));
