@@ -9,7 +9,7 @@ const app = express();
 dotenv.config();
 
 //Routing
-const home = require("./src/routes/home");
+const home = require("./src/routes/home/index");
 
 //app setting
 app.set("views", "./src/views");

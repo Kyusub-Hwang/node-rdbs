@@ -25,7 +25,7 @@ class UserStorage {
 
     static save = async (newClient) => {
         return new Promise((resolve, reject) => {
-            const query = "INSERT INTO abc (id, name, pw) VALUES (?, ?, ?);"
+            const query = "INSERT INTO users (id, name, pw) VALUES (?, ?, ?);"
             db.query(query,[newClient.id, newClient.name, newClient.pw], (err, data)=>{
                 if (err) reject(`${err}`);
                 else resolve({success:true}); 
