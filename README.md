@@ -1,6 +1,6 @@
 ## Login/Register Web on AWS Cloud </br> 
 Tech Stacks
-* Backend : NodeJS on AWS EC2 </br>
+* Backend : NodeJS on AWS EC2 (accessible using cloud IP) </br>
 * Database : MySQL on AWS RDS </br>
 * Frontend : Javascript </br>
 
